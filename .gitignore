@@ -1,1 +1,8 @@
 .venv/
+build/
+dist/
+
+*.spec
+
+another_ver.py
+todo.md
