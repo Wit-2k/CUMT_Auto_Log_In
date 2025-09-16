@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox, ttk  # 导入ttk模块以使用Combobox
+from tkinter import ttk  # 导入ttk模块以使用Combobox
 import requests
 import socket
 import time
