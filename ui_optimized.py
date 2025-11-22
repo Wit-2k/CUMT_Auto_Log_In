@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter.scrolledtext import ScrolledText
 import requests
 import socket
 import time
@@ -216,14 +217,19 @@ class LoginApp:
         self.master.title("登录状态")
 
         color = "green" if is_success else "red"
-        status_label = tk.Label(
+
+        text_widget = ScrolledText(
             self.container,
-            text=status_text,
             font=("Microsoft YaHei", 12),
             fg=color,
-            wraplength=300,
+            wrap="word",
+            height=6,
+            relief="flat",
+            bd=0,
         )
-        status_label.pack(pady=40, padx=20)
+        text_widget.insert("end", status_text)
+        text_widget.configure(state="disabled")  # 设置为只读
+        text_widget.pack(fill="both", expand=False, padx=20, pady=20)
 
         switch_button = tk.Button(
             self.container, text="切换/修改账号", command=self.show_login_page
